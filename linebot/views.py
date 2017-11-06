@@ -9,7 +9,7 @@ from django.http import HttpResponse
 from .osomatsu_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
 
 REPLY_ENDPOINT = 'https://api.line.me/v2/bot/message/reply'
-ACCESS_TOKEN = 'abct5KYWbfsXRwppCpEB01UtaSdGww7Xp46LMv1T0YD8qaGLo7p9XGPnzWmkz8dQ5BtaFONSt4DkLfvWPoQeE4v+RM8KWMmX9PuDsnx6J+2kXGVM+eoDgF2MSHevs/xqLwD7SzblQSD2I8+AWHfrPgdB04t89/1O/w1cDnyilFU='
+ACCESS_TOKEN = 'BJFMqx5ldaCzsB21Mb7Kh7W5Go74/bRBrPk5mpV1R+ceC4yxLPnm98jij4brSUhVkLZhAUOIcbiOc22Cauf+akK5aF3OkjY5bLu5qpQydFFgWeM+roCbao/or2VpumcVq+YDqbXWy4yThrPPUBqg7QdB04t89/1O/w1cDnyilFU='
 HEADER = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + ACCESS_TOKEN
