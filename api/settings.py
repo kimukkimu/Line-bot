@@ -25,7 +25,7 @@ SECRET_KEY = 'b1r7%0e-*o+-v_ls4$gs6z=+*rh32-$rks7tr*q=sl(d)(e7ow'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'safe-crag-89614.herokuapp.com']
 
 
 # Application definition
@@ -130,4 +130,3 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'safe-crag-89614.herokuapp.com']
