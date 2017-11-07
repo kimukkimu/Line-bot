@@ -46,7 +46,7 @@ def callback(request):
 
         if message_type == 'text':
             text = e['message']['text']    # 受信メッセージの取得
-            if text == '天気':
+            if text == '天気\n':
                 reply += weather_response() + '\n'
 
             reply += reply_text(reply_token, text)   # LINEにセリフを送信する関数
