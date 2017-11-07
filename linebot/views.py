@@ -24,6 +24,11 @@ def index(request):
 
 def reply_text(reply_token, text):
     reply = random.choice(osomatsu_serif)
+    pattern = r"天気"
+    match = re.match(pattern, text)
+    if match:
+        reply += weather_response()
+
     payload = {
           "replyToken": reply_token,
           "messages": [
@@ -47,9 +52,6 @@ def callback(request):
 
         if message_type == 'text':
             text = e['message']['text']    # 受信メッセージの取得
-            pattern = r"天気"
-            match = re.match(pattern, text)
-            reply += weather_response()
-
             reply += reply_text(reply_token, text)   # LINEにセリフを送信する関数
+
     return HttpResponse(reply)  # テスト用
