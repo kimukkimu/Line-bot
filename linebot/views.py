@@ -49,8 +49,7 @@ def callback(request):
             text = e['message']['text']    # 受信メッセージの取得
             pattern = r"天気"
             match = re.match(pattern, text)
-            if match:
-                reply += weather_response() + '\n'
+            reply += weather_response() + '\n'
 
             reply += reply_text(reply_token, text)   # LINEにセリフを送信する関数
     return HttpResponse(reply)  # テスト用
