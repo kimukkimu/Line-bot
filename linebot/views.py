@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .osomatsu_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
+from .weather import weather_response
 
 REPLY_ENDPOINT = 'https://api.line.me/v2/bot/message/reply'
 ACCESS_TOKEN = 'BJFMqx5ldaCzsB21Mb7Kh7W5Go74/bRBrPk5mpV1R+ceC4yxLPnm98jij4brSUhVkLZhAUOIcbiOc22Cauf+akK5aF3OkjY5bLu5qpQydFFgWeM+roCbao/or2VpumcVq+YDqbXWy4yThrPPUBqg7QdB04t89/1O/w1cDnyilFU='
@@ -23,16 +24,16 @@ def index(request):
 def reply_text(reply_token, text):
     reply = random.choice(osomatsu_serif)
     payload = {
-          "replyToken":reply_token,
-          "messages":[
+          "replyToken": reply_token,
+          "messages": [
                 {
-                    "type":"text",
-                    "text": reply + text
+                    "type": "text",
+                    "text": reply
                 }
             ]
     }
 
-    requests.post(REPLY_ENDPOINT, headers=HEADER, data=json.dumps(payload)) # LINEにデータを送信
+    requests.post(REPLY_ENDPOINT, headers=HEADER, data=json.dumps(payload))  # LINEにデータを送信
     return reply
 
 
@@ -45,5 +46,8 @@ def callback(request):
 
         if message_type == 'text':
             text = e['message']['text']    # 受信メッセージの取得
+            if text == '天気':
+                reply += weather_response() + '\n'
+
             reply += reply_text(reply_token, text)   # LINEにセリフを送信する関数
     return HttpResponse(reply)  # テスト用
