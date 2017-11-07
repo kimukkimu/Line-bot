@@ -27,7 +27,7 @@ def reply_text(reply_token, text):
     pattern = r"天気"
     match = re.match(pattern, text)
     if match:
-        reply += weather_response()
+        reply = weather_response()
 
     payload = {
           "replyToken": reply_token,

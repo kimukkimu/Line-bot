@@ -8,6 +8,5 @@ def weather_response():
     response = weather_date['title'] + '\n'
     for forecasts in weather_date['forecasts']:
         response += forecasts['dateLabel'] + 'の天気は、' + forecasts['telop'] + '\n'
-    #return response
+    return response
 
-    return "成功！"
