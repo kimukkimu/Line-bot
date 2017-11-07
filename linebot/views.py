@@ -2,6 +2,7 @@
 import json
 import random
 import requests
+import re
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -46,7 +47,9 @@ def callback(request):
 
         if message_type == 'text':
             text = e['message']['text']    # 受信メッセージの取得
-            if text == '天気\n':
+            pattern = r"天気"
+            match = re.match(pattern, text)
+            if match:
                 reply += weather_response() + '\n'
 
             reply += reply_text(reply_token, text)   # LINEにセリフを送信する関数
