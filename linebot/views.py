@@ -9,6 +9,7 @@ from django.http import HttpResponse
 
 from .osomatsu_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
 from .weather import weather_response
+from .Kyuko import Kyuko
 
 REPLY_ENDPOINT = 'https://api.line.me/v2/bot/message/reply'
 ACCESS_TOKEN = 'BJFMqx5ldaCzsB21Mb7Kh7W5Go74/bRBrPk5mpV1R+ceC4yxLPnm98jij4brSUhVkLZhAUOIcbiOc22Cauf+akK5aF3OkjY5bLu5qpQydFFgWeM+roCbao/or2VpumcVq+YDqbXWy4yThrPPUBqg7QdB04t89/1O/w1cDnyilFU='
@@ -28,6 +29,11 @@ def reply_text(reply_token, text):
     match = re.match(pattern, text)
     if match:
         reply = weather_response()
+
+    pattern = r"休講"
+    match = re.match(pattern, text)
+    if match:
+        reply = Kyuko()
 
     payload = {
           "replyToken": reply_token,
