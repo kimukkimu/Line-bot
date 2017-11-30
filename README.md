@@ -1,1 +1,1 @@
-#line-bot と Djangoの練習
+line-bot と Djangoの練習
