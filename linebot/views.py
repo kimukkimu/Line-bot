@@ -7,12 +7,12 @@ import re
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .osomatsu_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
+from .osomatsu_serif import osomatsu_serif  # セリフ一覧をimport
 from .weather import weather_response
 from .Kyuko import Kyuko
 
 REPLY_ENDPOINT = 'https://api.line.me/v2/bot/message/reply'
-ACCESS_TOKEN = 'BJFMqx5ldaCzsB21Mb7Kh7W5Go74/bRBrPk5mpV1R+ceC4yxLPnm98jij4brSUhVkLZhAUOIcbiOc22Cauf+akK5aF3OkjY5bLu5qpQydFFgWeM+roCbao/or2VpumcVq+YDqbXWy4yThrPPUBqg7QdB04t89/1O/w1cDnyilFU='
+ACCESS_TOKEN = 'XXXXXXXXXX'  # 自分のbotのアクセストークン
 HEADER = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + ACCESS_TOKEN
